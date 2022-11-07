@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=die20
+comment0.text=\n\ Write\ a\ description\ of\ class\ die20\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=die20()
+comment2.params=
+comment2.target=int\ getVaule()
+comment3.params=
+comment3.target=void\ roll()
+comment4.params=
+comment4.target=int\ rollAndGetValue()
+numComments=5
