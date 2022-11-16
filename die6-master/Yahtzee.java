@@ -1,41 +1,67 @@
 public class Yahtzee
 {
-    private int[] dice = new int[5];
-    private Die6 die;
-    private String string;
-    private String summer;
-    private int one;
-    private int two;
-    private int three;
-    private int four;
-    private int five;
-    private int six;
+    private Die6 die1;
+    private Die6 die2;
+    private Die6 die3;
+    private Die6 die4;
+    private Die6 die5;
     public Yahtzee() {
+        this.die1 = new Die6();
+        this.die2 = new Die6();
+        this.die3 = new Die6();
+        this.die4 = new Die6();
+        this.die5 = new Die6();
         this.roll();
     }
+
     public void roll() {
-        die = new Die6();
-        for (int i = 0; i < 5; i++) {
-            die.roll();
-            this.dice[i] = die.getValue();
+        die1.roll();
+        die2.roll();
+        die3.roll();
+        die4.roll();
+        die5.roll();
+    }
+
+    public void roll(int dieNumber) {
+        if (dieNumber == 1) {
+            die1.roll();
+        }
+        if (dieNumber == 2) {
+            die2.roll();
+        }
+        if (dieNumber == 3) {
+            die3.roll();
+        }
+        if (dieNumber == 4) {
+            die4.roll();
+        }
+        if (dieNumber == 5) {
+            die5.roll();
         }
     }
-    public void roll(int dieNumber) {
-        this.dice[dieNumber - 1] = die.rollAndGetValue();
-    }
+
     public String toString() {
-        string = "Dice Values: " + dice[0] +" " + dice[1] +" " + dice[2] +" " +  dice[3] +" " + dice[4];
+        String string = "Dice Values: " + die1.getValue() + " " + die2.getValue() + " " + die3.getValue() + " " 
+        + die4.getValue() + " " + die5.getValue();
         return string;
     }
+
     public String summarize() {
-        summer = "";
-        one = 0;
-        two = 0;
-        three = 0;
-        four = 0;
-        five = 0;
         int a = 0;
-        while (a > 5) {
+        int one = 0;
+        int two = 0;
+        int three = 0;
+        int four = 0;
+        int five = 0;
+        int six = 0;
+        String summer = "";
+        int[] dice = new int[5];
+        dice[0] = die1.getValue();
+        dice[1] = die2.getValue();
+        dice[2] = die3.getValue();
+        dice[3] = die4.getValue();
+        dice[4] = die5.getValue();
+        while (a < 5) {
             if (dice[a] == 1) {
                 one++;
             }
@@ -51,11 +77,12 @@ public class Yahtzee
             else if (dice[a] == 5) {
                 five++;
             }
-            else
+            else {
                 six++;
-            a++;
             }
+            a++;
+        }
         summer = "1-" + one + "; 2-" + two + "; 3-" + three + "; 4-" + four + "; 5-" + five + "; 6-" + six;
         return summer;
-        }
     }
+}
